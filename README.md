@@ -82,5 +82,8 @@ Ethereum wallet data provided by Etherscan.io
 
 Token wallet data provided by tokenbalance.com
 
+Crypto values provided by coincap.io
+
 Forex rates data provided by fixer.io
+
 Token:Contract mappings taken from MyEtherWallet.com
