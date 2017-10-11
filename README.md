@@ -10,7 +10,7 @@ The application is designed to run on Python3
 1. Clone the repo to local storage
 2. Run: pip install -r requirements.txt
 3. Rename example_accounts.json to accounts.json
-4. Rename example_settings.json to example_settings.json
+4. Rename example_settings.json to settings.json
 5. Modify the file values as necessary
 
 # Scheduling the application
@@ -39,7 +39,7 @@ Emails are sent via SMTP. You can enter your email settings in settings.py
 # Accounts.json
 The JSON for an account is as follows:
 
-"name": The name of the wallet
+"name": A chosen name for the wallet
 
 "email": Email of wallet owner
 

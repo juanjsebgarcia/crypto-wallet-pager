@@ -63,7 +63,7 @@ for account in accounts:
 			tokens = account['tokens'].split(",")
 			for token in tokens:
 				try:
-					tokenUSDValue = cryptos.getTokenUSDValue(account, token)
+					tokenUSDValue = cryptos.getTokenUSDValue(account, token.strip())
 					tokenLocalValue = forex.convertUSD(account['currency'], tokenUSDValue)
 					if tokenLocalValue > 0:
 						walletBalance += tokenLocalValue
