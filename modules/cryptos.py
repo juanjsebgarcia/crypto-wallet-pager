@@ -1,6 +1,6 @@
 import json
 import requests
-import wallets
+from modules import wallets
 
 def getCrypto(token):
 	token = token.strip()

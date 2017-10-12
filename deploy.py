@@ -1,12 +1,12 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 import json
-import wallets
-import cryptos
 import datetime
 import sys
-import forex
-import tools
+from modules import wallets
+from modules import cryptos
+from modules import forex
+from modules import tools
 
 #Global Variables
 today = datetime.date.today()
@@ -17,10 +17,10 @@ EMAIL = False
 if len(sys.argv) > 1:
 	for arg in sys.argv:
 		if arg == "sms":
-			import sms
+			from notifications import sms
 			SMS = True
 		if arg == "email":
-			import mail
+			from notifications import mail
 			EMAIL = True
 
 try:
