@@ -13,14 +13,18 @@ The application is designed to run on Python3
 4. Rename example_settings.json to settings.json
 5. Modify the file values as necessary
 
+JSON mappings can be found later in this readme
+
 # Scheduling the application
 Scheduling can be achieved with a cronjob. Visit crontab-generator.org for assitance
 
 Running the file outputs only to console. The email and sms flags are used to enable each feature.
 
-SMS eg: python deploy.py sms
+SMS only 
+>python deploy.py sms
 
-Email & SMS eg: python deploy email sms
+Email & SMS
+>python deploy.py email sms
 
 Example cronjob to run at midday:
 >00 12 * * * /usr/bin/python3 /home/ubuntu/CryptoWalletPager/deploy.py sms email
