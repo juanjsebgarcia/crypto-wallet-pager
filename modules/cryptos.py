@@ -2,16 +2,21 @@ import json
 import requests
 from modules import wallets
 
+cryptodata = {}
+
 def getCrypto(token):
-	token = token.strip()
-	requestURL = "http://www.coincap.io/page/{}".format(token)
-	payload = requests.get(requestURL)
-	return json.loads(payload.text)	
+	global cryptodata
+	if not token in cryptodata:
+		token = token.strip()
+		requestURL = "http://www.coincap.io/page/{}".format(token)
+		payload = requests.get(requestURL)
+		cryptodata[token] = json.loads(payload.text)
+	return cryptodata[token]
 
 def getCryptoValueETH(token):
 	data = getCrypto(token)
 	return data['price_eth']
-	
+
 def getCryptoValueBTC(token):
 	data = getCrypto(token)
 	return data['price_btc']
@@ -19,7 +24,7 @@ def getCryptoValueBTC(token):
 def getCryptoValueUSD(token):
 	data = getCrypto(token)
 	return data['price_usd']
-	
+
 def getCryptoVolume(token):
 	data = getCrypto(token)
 	return data['volume']
@@ -27,7 +32,7 @@ def getCryptoVolume(token):
 def getCryptoMarketCap(token):
 	data = getCrypto(token)
 	return data['market_cap']
-	
+
 def getEthUSDValue(account):
 	ethUSDPrice = getCryptoValueUSD("ETH")
 	ethWalletBalance = wallets.getEthereumBalance(account['wallet'])

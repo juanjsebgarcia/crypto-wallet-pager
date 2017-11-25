@@ -28,7 +28,8 @@ try:
 except:
 	print("Failed to load base currency from settings.json defaulting to USD")
 	base_currency = 'USD'
-	
+	sys.exit()
+
 try:
 	accounts = json.loads(open('accounts.json', 'r').read())
 except:
@@ -44,7 +45,7 @@ for account in accounts:
 	#Track fiat balance in each wallet
 	walletBalance = 0
 	walletString = ""
-	
+
 	#ETHEREUM
 	try:
 		ethUSDValue = cryptos.getEthUSDValue(account)
@@ -55,7 +56,7 @@ for account in accounts:
 			walletsTotal += ethUSDValue
 	except:
 		print("ETH balance retrieval failed for wallet {}".format(account['wallet']))
-			
+
 	#ERC20 TOKENS
 	#If tokens exist, check their formatting and attempt to retrieve values
 	if account['tokens'] is not None:
@@ -73,37 +74,36 @@ for account in accounts:
 					print("Error loading token data for {}".format(token))
 		except:
 			print("Error loading tokens for address {}".format(account['wallet']))
-		
-		
+
+
 	#PREPARE EXPORT CONTENT
 	walletTotalClean = tools.prettyOutput(walletBalance)
 	header = account['name'] +" Crypto Wallet\n"
 	date =  "{:%d %b %Y}".format(today)+"\n"
 	total = "TOTAL: ~{} {}".format(walletTotalClean, account['currency'])
 	content = header + date + walletString + total
-	
+
 	#DISTRIBUTE
 	if SMS:
 		if len(account['phone']) > 7:
 			if account['phoneEnabled'] == "True":
 				sms.sendSMS(account['phone'], content)
-	
-	if EMAIL: 
+
+	if EMAIL:
 		if len(account['email']) > 5:
 			if account['emailEnabled'] == "True":
 				mail.mailsend(account['email'], header + walletTotalClean, content)
-	
+
 	print(content)
-	
+
 	#add wallet total to running total
-	contentTotal += content +"\n"
+	contentTotal += content + "\n"
 
 summary = contentTotal + "Grand Total: {} {}".format(tools.prettyOutput(walletsTotal), base_currency)
 print(summary)
 
 if EMAIL:
 	try:
-		from_mail = json.loads(open('settings.json', 'r').read())['Email_FROMEMAIL']
-		sendEmail(from_mail, walletsTotal, summary)
+		mail.mailsend('juaney.garcia@gmail.com', 'Crypto {}'.format(datetime.date.today()), summary)
 	except:
 		print('Failed to send summary')

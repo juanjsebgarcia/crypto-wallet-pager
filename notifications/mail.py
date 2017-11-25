@@ -21,7 +21,7 @@ def mailsend(to, subject, content):
 	'''
 	Sends email securely using settings defined in settings.py
 	'''
-
+	
 	text_subtype = 'plain'
 
 	#BUILD EMAIL
