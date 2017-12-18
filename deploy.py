@@ -75,6 +75,24 @@ for account in accounts:
 		except:
 			print("Error loading tokens for address {}".format(account['wallet']))
 
+	#Bitcoin
+	#If bitcoin wallet
+	if 'bitcoin' in account:
+		bitLocalValue = 0
+		try:
+			bit_addresses = account['bitcoin'].split(",")
+			for address in bit_addresses:
+				try:
+					bitUSDValue = cryptos.getBitUSDValue( address.strip())
+					bitLocalValue += forex.convertUSD(account['currency'], bitUSDValue)
+				except:
+					print("Error loading token data for {}".format(token))
+			if bitLocalValue > 0:
+				walletBalance += bitLocalValue
+				walletString += "{}: ~{} {}\n".format('BTC', tools.prettyOutput(bitUSDValue), account['currency'])
+				walletsTotal += bitUSDValue
+		except:
+			print("Error loading bitcoin for address(es) {}".format(account['bitcoin']))
 
 	#PREPARE EXPORT CONTENT
 	walletTotalClean = tools.prettyOutput(walletBalance)
@@ -102,7 +120,8 @@ for account in accounts:
 summary = contentTotal + "Grand Total: {} {}".format(tools.prettyOutput(walletsTotal), base_currency)
 print(summary)
 
-if EMAIL:
+#SEND SUMMARY
+if EMAIL or SMS:
 	try:
 		mail.mailsend('juaney.garcia@gmail.com', 'Crypto {}'.format(datetime.date.today()), summary)
 	except:

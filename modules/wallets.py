@@ -64,3 +64,21 @@ def getEthereumBalance(address):
 		else:
 			time.sleep(5)
 	return None
+
+def getBitcoinBalance(address):
+	'''
+	Given an address returns BTC balance
+	'''
+	requestURL = "https://blockchain.info/rawaddr/{}".format(address)
+
+	#Try 5 times, incase server API is busy.
+	for x in range(0, 5):
+		payload = requests.get(requestURL)
+		payload = json.loads(payload.text)
+
+		if payload['final_balance'] is not None:
+			bitBalance = float(payload['final_balance'])/100000000 #Result is in Satoshi
+			return bitBalance
+		else:
+			time.sleep(5)
+	return None

@@ -38,6 +38,11 @@ def getEthUSDValue(account):
 	ethWalletBalance = wallets.getEthereumBalance(account['wallet'])
 	return ethWalletBalance*ethUSDPrice
 
+def getBitUSDValue(address):
+	btcUSDPrice = getCryptoValueUSD("BTC")
+	bitWalletBalance = wallets.getBitcoinBalance(address)
+	return bitWalletBalance*btcUSDPrice
+
 def getTokenUSDValue(account, token):
 	tokenUSDPrice = getCryptoValueUSD(token)
 	tokenWalletBalance = wallets.getTokenBalance(token, account['wallet'])
