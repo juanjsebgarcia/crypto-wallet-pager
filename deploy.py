@@ -70,7 +70,7 @@ for account in accounts:
 				wallets_total += token_usd_value
 
 		#bitcoin
-		if account['bitcoin'] is not None or account['bitcoin'] != '':
+		if 'bitcoin' in account:
 			bitcoin_addresses = account['bitcoin'].split(",")
 			for address in bitcoin_addresses:
 					balance = bitcoin.get_bitcoin_balance(address)
