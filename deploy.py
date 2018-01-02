@@ -105,13 +105,13 @@ for account in accounts:
 	#add wallet total to running total
 	content_total += content + "\n"
 
-summary = content_total + "Grand Total: {} {}".format(tools.prettyOutput(wallets_total), base_currency)
+summary = content_total + "Grand Total: {} {}".format(tools.pretty_output(wallets_total), base_currency)
 print(summary)
 
 #SEND SUMMARY
 if EMAIL or SMS:
 	try:
 		admin_email = json.loads(open('settings.json', 'r').read())['Email_FROMEMAIL']
-		mail.mailsend(admin_email, 'Crypto {}'.format(datetime.date.today()), summary)
+		mail.mail_send(admin_email, 'Crypto {}'.format(datetime.date.today()), summary)
 	except:
 		print('Failed to send summary')
