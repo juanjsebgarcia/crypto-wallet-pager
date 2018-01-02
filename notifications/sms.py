@@ -9,7 +9,7 @@ try:
 except:
 	print("Twilio failed to load settings")
 
-def sendSMS(recipient, message):
+def send_sms(recipient, message):
 	'''
 	Send SMS using Twilio
 	'''
@@ -17,8 +17,9 @@ def sendSMS(recipient, message):
 	if twilio_activate:
 		client = Client(account_sid, auth_token)
 		client.messages.create(
-		to = recipient,
-		from_ = source_number,
-		body = message)
+		to=recipient,
+		from_=source_number,
+		body=message,
+		)
 	else:
 		return None
