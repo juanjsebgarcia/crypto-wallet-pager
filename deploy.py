@@ -98,7 +98,7 @@ for account in accounts:
 	if EMAIL:
 		if len(account['email']) > 5:
 			if account['emailEnabled'] == "True":
-				mail.mail_send(account['email'], header + wallet_balance, content)
+				mail.mail_send(account['email'], header + str(wallet_balance), content)
 
 	print(content)
 
