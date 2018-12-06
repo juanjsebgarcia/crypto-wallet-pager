@@ -7,5 +7,6 @@
 "Email_USERNAME":"email@server.com",
 "Email_PASSWORD":"ABC",
 "Email_FROMEMAIL":"emaily@server.com",
-"Base_currency":"USD"
+"Base_currency":"USD",
+"Infura_project_id": ""
 }

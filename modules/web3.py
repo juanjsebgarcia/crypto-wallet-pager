@@ -7,7 +7,8 @@ def get_web3():
     '''
     Return web3 object
     '''
-    return Web3(HTTPProvider('https://mainnet.infura.io/'))
+    project_id = json.loads(open('settings.json', 'r').read())['Infura_project_id']
+    return Web3(HTTPProvider('https://mainnet.infura.io/v3/'+project_id))
 
 
 def get_eth_balance(wallet):
