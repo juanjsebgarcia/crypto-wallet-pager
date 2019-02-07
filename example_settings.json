@@ -1,12 +1,12 @@
 {
-"Etherscan_api":"ABC",
-"Twilio_account_sid":"ABC",
-"Twilio_auth_token":"ABC",
-"Twilio_source_number":"+123",
-"Email_SMTPSERVER":"smtp.server.com",
-"Email_USERNAME":"email@server.com",
-"Email_PASSWORD":"ABC",
-"Email_FROMEMAIL":"emaily@server.com",
-"Base_currency":"USD",
-"Infura_project_id": ""
+  "Etherscan_api": "ABC",
+  "Twilio_account_sid": "ABC",
+  "Twilio_auth_token": "ABC",
+  "Twilio_source_number": "+123",
+  "Email_SMTPSERVER": "smtp.server.com",
+  "Email_USERNAME": "email@server.com",
+  "Email_PASSWORD": "ABC",
+  "Email_FROMEMAIL": "emaily@server.com",
+  "Base_currency": "USD",
+  "Infura_project_id": ""
 }

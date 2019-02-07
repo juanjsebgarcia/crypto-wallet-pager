@@ -1,23 +1,22 @@
-[
-{
-"name":"Juan tip account",
-"email":"juan@server.com",
-"emailEnabled":"False",
-"phone":"+123",
-"phoneEnabled":"False",
-"currency":"GBP",
-"wallet":"0x5b07ed03962A7c160522495Ad29A7D9341711eDD",
-"tokens": "ZRX,ADT,AIR,AMIS"
-},
-{
-"name":"John Doe",
-"email":"john@server.com",
-"emailEnabled":"True",
-"phone":"+1234",
-"phoneEnabled":"True",
-"currency":"CNY",
-"wallet":"0x5b07ed03962A7c160522495Ad29A7D9341711eDD",
-"bitcoin":"1Pfj4arF63Q4LtFLfXfmV3ZkoTjyzL3Hv6",
-"tokens": "DNT"
-}
+[{
+    "name": "Juan tip account",
+    "email": "juan@server.com",
+    "emailEnabled": "False",
+    "phone": "+123",
+    "phoneEnabled": "False",
+    "currency": "GBP",
+    "wallet": "0x5b07ed03962A7c160522495Ad29A7D9341711eDD",
+    "tokens": "ZRX,ADT,AIR,AMIS"
+  },
+  {
+    "name": "John Doe",
+    "email": "john@server.com",
+    "emailEnabled": "True",
+    "phone": "+1234",
+    "phoneEnabled": "True",
+    "currency": "CNY",
+    "wallet": "0x5b07ed03962A7c160522495Ad29A7D9341711eDD",
+    "bitcoin": "1Pfj4arF63Q4LtFLfXfmV3ZkoTjyzL3Hv6",
+    "tokens": "DNT"
+  }
 ]

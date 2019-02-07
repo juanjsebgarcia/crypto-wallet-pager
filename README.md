@@ -3,7 +3,7 @@ Easily schedule updates for the fiat value of your Ethereum wallets including to
 
 Built in support for email and SMS through Twilio.
 
-For help tweet @juanjsebgarcia or use github
+For help tweet @juanjsebgarcia or use GitHub issues
 
 ## Installation
 The application is designed to run on Python3
@@ -20,7 +20,7 @@ Scheduling can be achieved with a cronjob. Visit crontab-generator.org for assit
 
 Running the file outputs only to console. The email and sms flags are used to enable each feature.
 
-SMS only 
+SMS only
 >python deploy.py sms
 
 Email & SMS

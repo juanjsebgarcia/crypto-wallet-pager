@@ -1,14 +1,19 @@
-from web3 import Web3, HTTPProvider, IPCProvider
 import json
 
+import requests
+from web3 import Web3, HTTPProvider
+
 token_contracts = None
+
 
 def get_web3():
     '''
     Return web3 object
     '''
-    project_id = json.loads(open('settings.json', 'r').read())['Infura_project_id']
-    return Web3(HTTPProvider('https://mainnet.infura.io/v3/'+project_id))
+    project_id = json.loads(
+        open('settings.json', 'r').read()
+    )['Infura_project_id']
+    return Web3(HTTPProvider('https://mainnet.infura.io/v3/' + project_id))
 
 
 def get_eth_balance(wallet):
@@ -17,22 +22,23 @@ def get_eth_balance(wallet):
     '''
     web3 = get_web3()
     wei = web3.eth.getBalance(wallet)
-    divisor = 10**18 #fixed divisor for Wei -> ETH
-    return wei/divisor
+    divisor = 10**18  # fixed divisor for Wei -> ETH
+    return wei / divisor
 
 
 def load_contracts():
-	'''
-	Loads contracts from MEW git, falls back to local instance if fails
-	'''
-	global token_contracts
-	if token_contracts is None:
-		try:
-			contracts = requests.get('https://raw.githubusercontent.com/kvhnuke/etherwallet/mercury/app/scripts/tokens/ethTokens.json').json()
-		except:
-			file = open('ethTokens.json', 'r')
-			contracts = json.loads(file.read())
-	return contracts
+    '''
+    Loads contracts from MEW git, falls back to local instance if fails
+    '''
+    global token_contracts
+    if token_contracts is None:
+        try:
+            contracts = requests.get(
+                'https://raw.githubusercontent.com/kvhnuke/etherwallet/mercury/app/scripts/tokens/ethTokens.json').json()
+        except:
+            file = open('ethTokens.json', 'r')
+            contracts = json.loads(file.read())
+    return contracts
 
 
 def make_abi_call(contract_address):
