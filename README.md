@@ -1,4 +1,8 @@
+## ⚠️ This is very old code - may no longer work, and certainly not reflective on my coding standards now. ⚠️
+
+
 # CryptoWalletPager
+
 Easily schedule updates for the fiat value of your Ethereum wallets including tokens.
 
 Built in support for email and SMS through Twilio.
